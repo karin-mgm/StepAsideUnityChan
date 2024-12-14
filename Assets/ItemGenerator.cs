@@ -28,7 +28,7 @@ public class ItemGenerator : MonoBehaviour
         buffer--;
         if (buffer <= 0)
         {
-            for (int i = 5; i < (unitychan.transform.position.z )+ 80; i += 15)
+            for (int i = 10; i < (unitychan.transform.position.z )+ 70; i += 15)
             {
 
                 int num = Random.Range(1, 11);
@@ -59,7 +59,7 @@ public class ItemGenerator : MonoBehaviour
                     }
                 }
             }
-            buffer = 800;
+            buffer = 700;
         }
     }
 }
