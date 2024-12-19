@@ -17,7 +17,7 @@ public class ItemGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buffer = 100;
+        buffer = 150;
         this.unitychan = GameObject.Find("unitychan");
     }
 
@@ -28,7 +28,7 @@ public class ItemGenerator : MonoBehaviour
         buffer--;
         if (buffer <= 0)
         {
-            for (int i = 10; i < (unitychan.transform.position.z )+ 70; i += 15)
+            for (int i = 40; i < (unitychan.transform.position.z )+ 70; i += 20)
             {
 
                 int num = Random.Range(1, 11);
@@ -36,15 +36,15 @@ public class ItemGenerator : MonoBehaviour
                 {
                     for (float j = -1; j <= 1; j += 0.4f)
                     {
-                        GameObject cone = Instantiate(conePrefab);
-                        cone.transform.position = new Vector3(4 * j, cone.transform.position.y, i);
+                        int offsetZ = Random.Range(-5, 6);
+                        
                     }
                 }
                 else
                 {
                     for (int j = -1; j <= 1; j++)
                     {
-                        int item = Random.Range(1, 11);
+                        int item = Random.Range(1, 14);
                         int offsetZ = Random.Range(-5, 6);
                         if (1 <= item && item <= 6)
                         {
@@ -56,10 +56,15 @@ public class ItemGenerator : MonoBehaviour
                             GameObject car = Instantiate(carPrefab);
                             car.transform.position = new Vector3(posRange * j, car.transform.position.y, i + offsetZ);
                         }
+                        else if(8 <= item && item <= 10)
+                        {
+                            GameObject cone = Instantiate(conePrefab);
+                            cone.transform.position = new Vector3(4 * j, cone.transform.position.y, i + offsetZ);
+                        }
                     }
                 }
             }
-            buffer = 700;
+            buffer = 450;
         }
     }
 }
